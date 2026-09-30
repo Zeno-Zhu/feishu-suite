@@ -15,8 +15,12 @@ if [ -z "$URL" ]; then
   exit 2
 fi
 
-# 部分环境下代理会拦 GitHub/飞书，按需绕开；如你依赖代理请删掉 --noproxy
-CURL_FLAGS=(-sL --noproxy '*')
+# 默认沿用 curl 自身的代理配置（很多环境必须靠代理才能访问飞书）。
+# 若你的环境恰恰是「代理拦了 feishu.cn」，设 FEISHU_NO_PROXY=1 绕开代理。
+CURL_FLAGS=(-sL)
+if [ "${FEISHU_NO_PROXY:-0}" = "1" ]; then
+  CURL_FLAGS+=(--noproxy '*')
+fi
 
 UA_DESKTOP="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 UA_MOBILE="Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1"
