@@ -1,0 +1,13 @@
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# 本地抓取产物（不要提交别人文档的导出内容）
+doc.html
+feishu_doc.html
+out/
+block_tree.txt
+extract_report.json
+image_tokens.txt

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="use-iframe" content="true">
+<meta name="html-box-height-mode" content="auto">
+<meta name="description" content="科技风文档头图 Banner（示例）">
+<title>Banner</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --grad-brand:linear-gradient(90deg,#f472b6,#a78bfa);
+    --line:rgba(244,114,182,.20);
+    --card:rgba(255,255,255,.02);
+  }
+  body{
+    font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;
+    background:
+      radial-gradient(ellipse at center, rgba(244,114,182,.05) 0%, transparent 60%),
+      linear-gradient(135deg,#050810,#0d1421);
+    border-radius:12px;
+    padding:28px 24px;
+    color:rgba(255,255,255,.9);
+    width:100%;
+  }
+
+  .hero{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+    padding:30px 26px;
+    overflow:hidden;
+  }
+  /* 边框流光 */
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    border-radius:14px;
+    padding:1px;
+    background:linear-gradient(120deg,transparent 20%,rgba(244,114,182,.65),rgba(167,139,250,.65),transparent 80%);
+    background-size:300% 100%;
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    animation:borderFlow 4s ease infinite;
+    pointer-events:none;
+  }
+  @keyframes borderFlow{
+    0%{background-position:0% 50%}
+    100%{background-position:300% 50%}
+  }
+
+  .kicker{
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.42);
+    margin-bottom:10px;
+  }
+  .title{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:2px;
+    line-height:1.3;
+    background:var(--grad-brand);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 12px rgba(244,114,182,.38));
+  }
+  .sub{
+    margin-top:10px;
+    font-size:13.5px;
+    line-height:1.8;
+    color:rgba(255,255,255,.58);
+    max-width:62ch;
+  }
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:10px;
+    margin-top:22px;
+  }
+  .stat{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .stat b{
+    display:block;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:.5px;
+    color:#f9a8d4;
+  }
+  .stat span{
+    display:block;
+    margin-top:4px;
+    font-size:11.5px;
+    letter-spacing:1px;
+    color:rgba(255,255,255,.4);
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="kicker">Documentation</div>
+    <div class="title">API 接入指南</div>
+    <p class="sub">本文档覆盖鉴权、模型列表、计费与常见故障排查。所有示例均可直接复制运行。</p>
+
+    <div class="stats">
+      <div class="stat"><b>12</b><span>可用模型</span></div>
+      <div class="stat"><b>&lt;200ms</b><span>平均延迟</span></div>
+      <div class="stat"><b>99.9%</b><span>可用性</span></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="use-iframe" content="true">
+<meta name="html-box-height-mode" content="auto">
+<meta name="description" content="模型价格表（示例）">
+<title>价格表</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --grad-brand:linear-gradient(90deg,#f472b6,#a78bfa);
+    --line:rgba(244,114,182,.20);
+    --card:rgba(255,255,255,.02);
+  }
+  body{
+    font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;
+    background:
+      radial-gradient(ellipse at center, rgba(244,114,182,.05) 0%, transparent 60%),
+      linear-gradient(135deg,#050810,#0d1421);
+    border-radius:12px;
+    padding:28px 24px;
+    color:rgba(255,255,255,.9);
+    width:100%;
+  }
+
+  .section-title{
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    background:var(--grad-brand);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 10px rgba(244,114,182,.4));
+  }
+
+  .list{display:flex;flex-direction:column;gap:10px}
+
+  .row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px 18px;
+    transition:border-color .25s ease;
+  }
+  .row:hover{border-color:rgba(244,114,182,.45)}
+
+  .name{
+    font-size:14.5px;
+    font-weight:700;
+    letter-spacing:.5px;
+    color:#fff;
+  }
+  .badge{
+    font-size:10.5px;
+    font-weight:800;
+    letter-spacing:1px;
+    padding:3px 8px;
+    border-radius:6px;
+    text-transform:uppercase;
+    background:linear-gradient(90deg,#f472b6,#a78bfa);
+    color:#0b0f1a;
+  }
+  .badge.ghost{
+    background:transparent;
+    border:1px solid var(--line);
+    color:rgba(255,255,255,.55);
+  }
+  .desc{
+    flex:1;
+    font-size:12.5px;
+    color:rgba(255,255,255,.45);
+    line-height:1.6;
+  }
+  .price{
+    font-size:16px;
+    font-weight:900;
+    color:#f9a8d4;
+    white-space:nowrap;
+  }
+  .price em{
+    font-style:normal;
+    font-size:11px;
+    font-weight:600;
+    color:rgba(255,255,255,.4);
+    margin-left:2px;
+  }
+
+  @media(max-width:560px){
+    .row{flex-wrap:wrap}
+    .desc{flex-basis:100%;order:3}
+  }
+</style>
+</head>
+<body>
+  <div class="section-title">// 模型价格</div>
+
+  <div class="list">
+    <div class="row">
+      <span class="name">model-a</span>
+      <span class="badge">HOT</span>
+      <span class="desc">支持文生视频、图生视频、音频参考</span>
+      <span class="price">0.65<em>元/次</em></span>
+    </div>
+
+    <div class="row">
+      <span class="name">model-b</span>
+      <span class="badge ghost">PRO</span>
+      <span class="desc">支持图生视频，多参考素材</span>
+      <span class="price">2.00<em>元/次</em></span>
+    </div>
+
+    <div class="row">
+      <span class="name">model-c</span>
+      <span class="badge ghost">FAST</span>
+      <span class="desc">低成本批量场景，出图快</span>
+      <span class="price">0.12<em>元/次</em></span>
+    </div>
+  </div>
+</body>
+</html>
